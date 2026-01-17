@@ -20,10 +20,10 @@ export default function About() {
             <section className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600">
               <h2 className="text-xl font-bold mb-4">Connect With Me</h2>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
-                <p><strong>📧 Email:</strong> yourname@email.com</p>
-                <p><strong>🔗 LinkedIn:</strong> linkedin.com/in/yourprofile</p>
-                <p><strong>💻 GitHub:</strong> github.com/yourusername</p>
-                <p><strong>📍 Location:</strong> Your City, Country</p>
+                <p><strong>📧 Email:</strong> sindhujamyadam123@gmail.com</p>
+                <p><strong>🔗 LinkedIn:</strong> https://www.linkedin.com/in/sindhuja2025</p>
+                <p><strong>💻 GitHub:</strong> https://github.com/Sindhuja16-coder</p>
+                <p><strong>📍 Location:</strong> India</p>
               </div>
             </section>
 
