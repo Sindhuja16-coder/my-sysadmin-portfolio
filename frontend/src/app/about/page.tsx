@@ -15,7 +15,23 @@ export default function About() {
           </div>
 
           <div className="p-10 space-y-8">
-            
+            <section className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 text-slate-800 border-b pb-2">Philosophy: The NextGenAdmin Approach</h2>
+  <div className="grid md:grid-cols-2 gap-8">
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold text-blue-600">Innovation Over Observation</h3>
+      <p className="text-slate-600 text-sm leading-relaxed">
+        I believe that modern System Administration requires a developer's mindset. Instead of manually managing tasks, I build dashboards like **NextGenAdmin** to centralize operations and provide a "Single Pane of Glass" for infrastructure health.
+      </p>
+    </div>
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold text-blue-600">Documentation as Code</h3>
+      <p className="text-slate-600 text-sm leading-relaxed">
+        Every technical hurdle—from **BIOS virtualization blocks** to **OOBE enrollment loops**—is an opportunity to improve the system. My philosophy is that a solution isn't finished until it is documented and repeatable for the entire team.
+      </p>
+    </div>
+  </div>
+</section>
             {/* Contact Details - NEW */}
             <section className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600">
               <h2 className="text-xl font-bold mb-4">Connect With Me</h2>
