@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar";
+import Navbar from "../../../components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -24,6 +24,7 @@ export default function IntuneLabGuide() {
             <h2 className="text-2xl font-bold mb-4 text-red-600">Error: Intel VT-x is disabled</h2>
             <div className="flex flex-col md:flex-row gap-6 mb-6">
               <div className="md:w-1/2">
+                {/* Make sure this image exists in public/images/ */}
                 <Image src="/images/vm-error.png" alt="Intel VT-x error" width={400} height={250} className="rounded border shadow-sm" />
                 <p className="text-[10px] text-slate-400 mt-1 uppercase">The error that stops the VM from booting</p>
               </div>
