@@ -8,84 +8,133 @@ export default function IntuneLabGuide() {
       <Navbar />
       
       <main className="max-w-4xl mx-auto px-6 py-12">
-        <div className="mb-6">
-          <Link href="/blog" className="text-blue-600 hover:underline font-medium">← Back to Knowledge Hub</Link>
+        {/* Navigation */}
+        <div className="mb-8">
+          <Link href="/blog" className="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2">
+            ← Back to Knowledge Base
+          </Link>
         </div>
 
-        <div className="mb-10 border-b border-slate-200 pb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mt-4 mb-2">Technical Guide: Fixing Intune Lab Errors</h1>
-          <p className="text-slate-600 italic">Documentation of the exact steps taken to resolve virtualization and enrollment blocks.</p>
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <span className="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+            Lab Documentation
+          </span>
+          <h1 className="text-3xl md:text-5xl font-extrabold mt-6 mb-4 text-slate-900">
+            How to Build a Safe Intune Testing Lab
+          </h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            We cannot test corporate policies on our personal laptops. This guide documents how I built a <strong>virtual sandbox</strong> to safely enroll, manage, and break Windows 11 instances without risking my own hardware.
+          </p>
         </div>
 
-        <div className="space-y-12">
+        {/* SCENARIO 1: THE HARDWARE BLOCK */}
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-12">
+          <div className="bg-slate-900 p-6 border-b border-slate-800">
+            <h2 className="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="bg-red-500 text-white text-sm px-3 py-1 rounded">Scenario 1</span>
+              The Hypervisor Block
+            </h2>
+          </div>
           
-          {/* ERROR 1: BIOS/VT-x */}
-          <section className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-            <h2 className="text-2xl font-bold mb-4 text-red-600">Error: Intel VT-x is disabled</h2>
-            <div className="flex flex-col md:flex-row gap-6 mb-6">
-              <div className="md:w-1/2">
-                <Image src="/images/vm-error.png" alt="Intel VT-x error" width={400} height={250} className="rounded border shadow-sm" />
-                <p className="text-[10px] text-slate-400 mt-1 uppercase">The error that stops the VM from booting</p>
+          <div className="p-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 className="font-bold text-slate-900 mb-2">🔴 Problem</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Upon attempting to boot the Windows 11 ISO in VMware Workstation, the VM immediately crashed.
+                  <strong>Error:</strong> "Intel VT-x is disabled."
+                </p>
+                <div className="bg-slate-100 p-3 rounded text-xs font-mono text-red-600 border border-slate-200">
+                  This host supports Intel VT-x, but Intel VT-x is disabled.<br/>
+                  Module 'MonitorMode' power on failed.
+                </div>
               </div>
-              <div className="md:w-1/2 space-y-3">
-                <h3 className="font-bold">The Solution:</h3>
-                <ol className="list-decimal pl-5 text-sm space-y-2 text-slate-700">
-                  <li>Shut down your physical laptop completely.</li>
-                  <li>Press the <strong>Power Button</strong> and immediately tap <strong>F10</strong> (or the key shown on your Startup Menu).</li>
-                  <li>Navigate to <strong>Advanced</strong> or <strong>System Configuration</strong>.</li>
-                  <li>Find <strong>Virtualization Technology (VTx)</strong> and change it to <strong>Enabled</strong>.</li>
-                  <li>Press <strong>F10 to Save and Exit</strong>.</li>
-                </ol>
+              <div className="relative h-48 w-full border border-slate-200 rounded-lg overflow-hidden shadow-sm">
+                 <Image src="/images/vm-error.png" alt="VMware VT-x Error" fill style={{objectFit: "contain"}} />
               </div>
             </div>
-          </section>
 
-          {/* ERROR 2: OOBE KEYBOARD */}
-          <section className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-            <h2 className="text-2xl font-bold mb-4 text-red-600">Error: OOBEKEYBOARD / Something went wrong</h2>
-            <div className="flex flex-col md:flex-row gap-6 mb-6">
-              <div className="md:w-1/2 space-y-3 order-2 md:order-1">
-                <h3 className="font-bold">The Solution (The "Command Line" Fix):</h3>
-                <p className="text-sm text-slate-600">If clicking "Try again" doesn't work, follow these expert steps:</p>
-                <ul className="list-disc pl-5 text-sm space-y-2 text-slate-700">
-                  <li>On the error screen, press <strong>Shift + F10</strong> on your keyboard to open the Command Prompt.</li>
-                  <li>Type the following command and press Enter: <br/> <code className="bg-slate-100 px-2 py-1 rounded text-blue-700 font-bold">oobe\bypassnro</code></li>
-                  <li>The VM will restart and allow you to continue the setup without the keyboard loop.</li>
+            <div className="border-t border-slate-100 pt-8 grid md:grid-cols-2 gap-8">
+               <div className="relative h-48 w-full border border-slate-200 rounded-lg overflow-hidden shadow-sm order-2 md:order-1">
+                 <Image src="/images/bios-setup.png" alt="BIOS Setup Menu" fill style={{objectFit: "cover"}} />
+              </div>
+              <div className="order-1 md:order-2">
+                <h3 className="font-bold text-slate-900 mb-2">🟢 Action & Solution</h3>
+                <ul className="space-y-3 text-sm text-slate-700">
+                  <li className="flex gap-3">
+                    <span className="font-bold text-blue-600">1.</span>
+                    <span><strong>Access BIOS:</strong> Restarted the physical host and interrupted boot (F10 on HP) to enter the Startup Menu.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="font-bold text-blue-600">2.</span>
+                    <span><strong>Enable Virtualization:</strong> Navigated to <em>System Configuration</em> and toggled <strong>Virtualization Technology (VTx)</strong> to <span className="text-green-600 font-bold">Enabled</span>.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="font-bold text-blue-600">3.</span>
+                    <span><strong>Result:</strong> VMware could finally access the CPU's hardware virtualization extensions, allowing the 64-bit guest OS to boot.</span>
+                  </li>
                 </ul>
               </div>
-              <div className="md:w-1/2 order-1 md:order-2">
-                <Image src="/images/oobe-error.png" alt="OOBE Keyboard error" width={400} height={250} className="rounded border shadow-sm" />
-                <p className="text-[10px] text-slate-400 mt-1 uppercase">Stuck on the OOBE loop</p>
-              </div>
             </div>
-          </section>
-
-          {/* FINAL MANAGEMENT PROCESS */}
-          <section className="bg-slate-900 text-white p-8 rounded-xl shadow-2xl">
-            <h2 className="text-2xl font-bold mb-6">Final Step: Intune Policy Check</h2>
-            <p className="mb-6 text-slate-300">Once the device reaches the desktop, verify management:</p>
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <ul className="space-y-4 text-sm">
-                <li className="flex gap-3">
-                  <span className="text-green-400 font-bold">1.</span> 
-                  Go to <strong>Settings &gt; Accounts &gt; Access Work or School</strong>.
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-green-400 font-bold">2.</span> 
-                  Click your account and select <strong>Info</strong>.
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-green-400 font-bold">3.</span> 
-                  Click <strong>Sync</strong> to pull the latest security updates.
-                </li>
-              </ul>
-              <div className="border-2 border-slate-700 rounded-lg overflow-hidden">
-                <Image src="/images/win-success.png" alt="Success screen" width={400} height={250} className="w-full" />
-              </div>
-            </div>
-          </section>
-
+          </div>
         </div>
+
+        {/* SCENARIO 2: THE ENROLLMENT LOOP */}
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-12">
+          <div className="bg-slate-900 p-6 border-b border-slate-800">
+            <h2 className="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="bg-red-500 text-white text-sm px-3 py-1 rounded">Scenario 2</span>
+              The OOBE Loop
+            </h2>
+          </div>
+          
+          <div className="p-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 className="font-bold text-slate-900 mb-2">🔴 Problem</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  During the "Out of Box Experience" (Windows Setup), the installer got stuck in a loop.
+                  <strong>Error:</strong> "Something went wrong - OOBEKEYBOARD."
+                </p>
+                <p className="text-slate-600 text-sm">
+                  Clicking "Try Again" simply reloaded the same error, effectively soft-locking the VM.
+                </p>
+              </div>
+              <div className="relative h-48 w-full border border-slate-200 rounded-lg overflow-hidden shadow-sm">
+                 <Image src="/images/oobe-error.png" alt="OOBE Keyboard Error" fill style={{objectFit: "contain"}} />
+              </div>
+            </div>
+
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <h3 className="font-bold text-blue-900 mb-2">🟢 The Command Line Solution</h3>
+              <p className="text-sm text-blue-800 mb-4">
+                Since the GUI was broken, I had to force a bypass using the hidden administrator console.
+              </p>
+              <div className="bg-slate-900 text-slate-50 p-4 rounded font-mono text-sm shadow-inner">
+                <span className="text-slate-500"># 1. Open Console</span><br/>
+                Shift + F10<br/><br/>
+                <span className="text-slate-500"># 2. Execute Bypass Command</span><br/>
+                <span className="text-yellow-400">oobe\bypassnro</span>
+              </div>
+              <p className="text-sm text-blue-800 mt-4">
+                <strong>Result:</strong> The VM rebooted, bypassed the network check, and allowed me to create a local "Admin" account to finish the setup.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* SCENARIO 3: SUCCESS */}
+        <div className="bg-green-50 rounded-2xl border border-green-200 p-8 text-center">
+          <h2 className="text-2xl font-bold text-green-900 mb-4">✅ Final Result: Lab Ready</h2>
+          <p className="text-green-800 mb-8 max-w-2xl mx-auto">
+            The Virtual Machine is now fully operational and enrolled. It is isolated from my personal host machine, meaning I can safely push experimental Intune security policies without risk.
+          </p>
+          <div className="relative h-64 md:h-80 w-full rounded-xl overflow-hidden shadow-lg border-4 border-white">
+             <Image src="/images/win-success.png" alt="Windows Success Desktop" fill style={{objectFit: "cover"}} />
+          </div>
+        </div>
+
       </main>
     </div>
   );
