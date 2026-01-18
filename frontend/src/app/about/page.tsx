@@ -1,77 +1,32 @@
-import Navbar from "../components/Navbar";
-
 export default function About() {
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-      <Navbar />
-      
-      <main className="max-w-4xl mx-auto px-6 py-12">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
-          
-          {/* Header Section */}
-          <div className="bg-slate-900 text-white p-10">
-            <h1 className="text-4xl font-bold mb-2">System Administrator & Intune Engineer</h1>
-            <p className="text-blue-400 font-mono italic">"Documenting the solutions to the problems I solve."</p>
-          </div>
+    <div className="max-w-3xl mx-auto space-y-8 p-6">
+      {/* Self Intro & Tagline */}
+      <section className="text-center space-y-2">
+        <h1 className="text-3xl font-bold text-slate-900">NextGenAdmin</h1>
+        <p className="text-blue-600 italic">"Documenting the solutions to the problems I solve."</p>
+        <p className="text-slate-600 pt-4">
+          I am a System Administrator & Intune Engineer focused on automation, centralized operations, and infrastructure health.
+        </p>
+      </section>
 
-          <div className="p-10 space-y-8">
-            <section className="mb-12">
-  <h2 className="text-2xl font-bold mb-6 text-slate-800 border-b pb-2">Philosophy: The NextGenAdmin Approach</h2>
-  <div className="grid md:grid-cols-2 gap-8">
-    <div className="space-y-4">
-      <h3 className="text-lg font-bold text-blue-600">Innovation Over Observation</h3>
-      <p className="text-slate-600 text-sm leading-relaxed">
-        I believe that modern System Administration requires a developer's mindset. Instead of manually managing tasks, I build dashboards like **NextGenAdmin** to centralize operations and provide a "Single Pane of Glass" for infrastructure health.
-      </p>
-    </div>
-    <div className="space-y-4">
-      <h3 className="text-lg font-bold text-blue-600">Documentation as Code</h3>
-      <p className="text-slate-600 text-sm leading-relaxed">
-        Every technical hurdle—from **BIOS virtualization blocks** to **OOBE enrollment loops**—is an opportunity to improve the system. My philosophy is that a solution isn't finished until it is documented and repeatable for the entire team.
-      </p>
-    </div>
-  </div>
-</section>
-            {/* Contact Details - NEW */}
-            <section className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600">
-              <h2 className="text-xl font-bold mb-4">Connect With Me</h2>
-              <div className="grid md:grid-cols-2 gap-4 text-sm">
-                <p><strong>📧 Email:</strong> sindhujamyadam123@gmail.com</p>
-                <p><strong>🔗 LinkedIn:</strong> https://www.linkedin.com/in/sindhuja2025</p>
-                <p><strong>💻 GitHub:</strong> https://github.com/Sindhuja16-coder</p>
-                <p><strong>📍 Location:</strong> India</p>
-              </div>
-            </section>
-
-            {/* Troubleshooting Skills */}
-            <section className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <h3 className="font-bold text-lg mb-3 flex items-center gap-2">🛠️ Troubleshooting</h3>
-                <p className="text-sm text-slate-600">
-                  Fixed hardware-level blocks like <strong>Intel VT-x</strong> in BIOS and bypassed Windows enrollment loops using <strong>Command Line (Shift+F10)</strong>.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <h3 className="font-bold text-lg mb-3 flex items-center gap-2">☁️ Cloud Expert</h3>
-                <p className="text-sm text-slate-600">
-                  Hands-on experience with Microsoft Intune, Entra ID (Azure AD), and automated OOBE device setup.
-                </p>
-              </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section>
-              <h2 className="text-2xl font-bold mb-6 text-slate-800">Intune FAQ</h2>
-              <div className="space-y-4">
-                <div className="bg-slate-50 border border-slate-200 p-6 rounded-xl">
-                  <h3 className="font-bold text-blue-600 mb-2">Enrollment vs Registration?</h3>
-                  <p className="text-sm text-slate-600">Registration is for identity (SSO); Enrollment gives Intune full control to push security policies and apps.</p>
-                </div>
-              </div>
-            </section>
-          </div>
+      {/* Minimal Contact Section */}
+      <section className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600">
+        <h2 className="text-xl font-bold mb-4">Connect With Me</h2>
+        <div className="grid md:grid-cols-2 gap-2 text-sm">
+          <p><strong>📧 Email:</strong> sindhujamyadam123@gmail.com</p>
+          <p><strong>🔗 LinkedIn:</strong> /in/sindhuja2025</p>
+          <p><strong>💻 GitHub:</strong> /sindhuja16-coder</p>
+          <p><strong>📍 Location:</strong> India</p>
         </div>
-      </main>
+      </section>
+
+      {/* FAQ Tagline */}
+      <section className="text-center border-t pt-6">
+        <p className="text-slate-500 font-medium">
+          FAQ: Automation-first, documentation-always.
+        </p>
+      </section>
     </div>
   );
 }
