@@ -1,3 +1,4 @@
+[![Portfolio Build Check](https://github.com/Sindhuja16-coder/my-sysadmin-portfolio/actions/workflows/build-check.yml/badge.svg)](https://github.com/Sindhuja16-coder/my-sysadmin-portfolio/actions/workflows/build-check.yml)
 My SysAdmin Portfolio & Intune Lab Hub 🚀
 This repository contains my professional portfolio website and a series of technical lab reports documenting my journey into Cloud Engineering and System Administration.
 
@@ -35,7 +36,6 @@ Navigate to the frontend: cd frontend.
 Install dependencies: npm install.
 
 Run development mode: npm run dev.
-
 📧 Contact & Connect
 LinkedIn: [https://www.linkedin.com/in/sindhuja2025]
 
