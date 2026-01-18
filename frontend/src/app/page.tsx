@@ -1,58 +1,75 @@
 import Navbar from "./components/Navbar";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       <Navbar />
       
-      {/* RESTORED HERO SECTION */}
-      <header className="max-w-6xl mx-auto px-4 pt-12">
-        <div className="bg-[#0f172a] rounded-2xl p-12 text-white shadow-xl">
-          <h1 className="text-5xl font-bold tracking-tight mb-4">
-            System Administrator & Intune Engineer
+      {/* Dark Hero Section */}
+      <section className="bg-slate-900 text-white py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            System Administration & <br/>
+            <span className="text-blue-400">Engineering Logs.</span>
           </h1>
-          <p className="text-xl text-blue-400 font-mono">
-            "Documenting the solutions to the problems I solve."
+          <p className="text-slate-300 text-lg max-w-2xl mb-8">
+            A centralized dashboard for managing cloud infrastructure, documenting technical fixes, and building automation tools.
           </p>
+          <Link href="/blog" className="inline-block bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-100 transition-colors">
+            Read Documentation →
+          </Link>
         </div>
-      </header>
+      </section>
 
-      <main className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-slate-800 mb-12 border-b border-slate-200 pb-4">
-          Automation & Lab Projects
-        </h2>
+      <main className="max-w-6xl mx-auto px-6 py-16">
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Section Heading with Blue Accent Bar */}
+        <div className="mb-10 border-l-4 border-blue-600 pl-4">
+          <h2 className="text-3xl font-bold text-slate-900">My Portfolio & Experience</h2>
+        </div>
+
+        {/* The 3-Column Grid from your Image */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          {/* CareerOps */}
-          <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-            <span className="text-xs font-bold text-blue-600 tracking-widest uppercase">Python Automation</span>
-            <h3 className="text-2xl font-bold text-slate-900 mt-2">CareerOps</h3>
-            <p className="text-slate-600 mt-3 mb-6">A custom automation tool developed to streamline job applications and operational workflows.</p>
-            <a href="/careerops" className="text-blue-600 font-semibold hover:text-blue-800 transition-colors">Open Tool →</a>
+          {/* Card 1: Automated Job Hunter */}
+          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="text-4xl mb-4">🤖</div>
+            <h3 className="text-xl font-bold mb-3">Automated Job Hunter</h3>
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              A Python bot that aggregates job emails, automates redirects, and tracks applications in a central dashboard.
+            </p>
+            <Link href="/careerops" className="inline-block bg-slate-900 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-slate-800">
+              View Architecture
+            </Link>
           </div>
 
-          {/* mnc-job-hunter - FIXED REPO LINK */}
-          <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-            <span className="text-xs font-bold text-green-600 tracking-widest uppercase">Web Scraping</span>
-            <h3 className="text-2xl font-bold text-slate-900 mt-2">mnc-job-hunter</h3>
-            <p className="text-slate-600 mt-3 mb-6">Automated filtering and tracking for Multi-National Corporation job portals.</p>
-            <a 
-              href="https://github.com/Sindhuja16-coder/mnc-job-hunter" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-blue-600 font-semibold hover:text-blue-800 transition-colors"
-            >
-              View Repo →
-            </a>
+          {/* Card 2: Intune Expertise */}
+          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="text-4xl mb-4">☁️</div>
+            <h3 className="text-xl font-bold mb-3">Intune Expertise</h3>
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              Hands-on experience in MDM/MAM, Autopilot deployment, and policy management.
+            </p>
+            <Link href="/blog" className="inline-block bg-slate-900 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-slate-800">
+              View Guides
+            </Link>
           </div>
 
-          {/* Intune VM Lab */}
-          <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-            <span className="text-xs font-bold text-purple-600 tracking-widest uppercase">Cloud Infrastructure</span>
-            <h3 className="text-2xl font-bold text-slate-900 mt-2">Intune VM Lab</h3>
-            <p className="text-slate-600 mt-3 mb-6">Technical guide on resolving VT-x BIOS blocks and Windows OOBE enrollment loops.</p>
-            <a href="/blog/intune-lab" className="text-blue-600 font-semibold hover:text-blue-800 transition-colors">Read Lab Report →</a>
+          {/* Card 3: Tools & Resources */}
+          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-xl font-bold mb-4">Tools & Resources</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center text-sm text-slate-600">
+                <span className="mr-2">📄</span> IT Change Log Template
+              </li>
+              <li className="flex items-center text-sm text-slate-600">
+                <span className="mr-2">📎</span> Automation Scripts
+              </li>
+              <li className="flex items-center text-sm text-slate-600">
+                <span className="mr-2">🛠️</span> Admin Tools
+              </li>
+            </ul>
           </div>
 
         </div>
@@ -60,4 +77,3 @@ export default function Home() {
     </div>
   );
 }
-
