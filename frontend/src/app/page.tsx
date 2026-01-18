@@ -45,7 +45,7 @@ export default function Home() {
         {/* The 3-Column Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           
-          {/* 1. CareerOps (Internal Link) */}
+          {/* Card 1: CareerOps */}
           <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
             <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
               ⚙️
@@ -59,7 +59,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* 2. Automated Job Hunter (External GitHub Link) */}
+          {/* Card 2: Automated Job Hunter */}
           <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
             <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
               🤖
@@ -68,23 +68,25 @@ export default function Home() {
             <p className="text-slate-600 text-sm leading-relaxed mb-6 h-20">
               A Python automation bot that aggregates job alerts, automates email filtering, and organizes opportunities in a central dashboard.
             </p>
-            {/* DIRECT GITHUB LINK HERE */}
             <a href="https://github.com/Sindhuja16-coder/mnc-job-hunter" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors">
               View Repository <span className="ml-2">↗</span>
             </a>
           </div>
 
-          {/* 3. Intune Expertise (Internal Link) */}
+          {/* Card 3: Intune Expertise - UPDATED FOR WEEKLY SERIES */}
           <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
             <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
               ☁️
             </div>
             <h3 className="text-xl font-bold mb-3 text-slate-900">Intune Expertise</h3>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6 h-20">
-              Documentation of Enterprise Mobility (MDM/MAM), Autopilot deployment, and resolving hardware-level BIOS/OOBE errors.
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 h-auto">
+              Hands-on documentation of Microsoft Intune & Autopilot. 
+              <span className="block mt-2 font-medium text-blue-600">
+                 Currently publishing a weekly technical series covering the journey from VM setup to Enterprise Policies.
+              </span>
             </p>
             <Link href="/blog" className="inline-flex items-center text-blue-600 font-bold text-sm hover:text-blue-800 transition-colors">
-              View Lab Guides <span className="ml-2">→</span>
+              Read the Series <span className="ml-2">→</span>
             </Link>
           </div>
 
