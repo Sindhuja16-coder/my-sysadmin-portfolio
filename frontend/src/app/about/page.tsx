@@ -1,52 +1,132 @@
-import Link from 'next/link';
+"use client"; // Required for the clickable FAQ interactivity
+
+import Navbar from "../components/Navbar";
+import { useState } from "react";
 
 export default function About() {
+  // Simple state for managing FAQ clicks
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Why did you build this portfolio?",
+      answer: "A standard resume can't show how I solve problems. I built this site to serve as a 'Single Pane of Glass' for my work—documenting my Intune lab setups, Python automation scripts, and web development projects in one live environment."
+    },
+    {
+      question: "What is your primary technical focus?",
+      answer: "I sit at the intersection of IT Operations and Development. My core strengths are Cloud Infrastructure (Microsoft Intune, Entra ID) and Automation (Python, PowerShell). I build tools to fix repetitive operational tasks."
+    },
+    {
+      question: "Are you open to new opportunities?",
+      answer: "Yes, I am actively looking for roles in Cloud Administration, Intune Engineering, or IT Automation. I am based in India and open to remote or hybrid opportunities."
+    }
+  ];
+
   return (
-    <div className="max-w-5xl mx-auto p-6 space-y-12">
-      {/* Professional Header Section - High Contrast */}
-      <section className="bg-[#0f172a] text-white p-10 rounded-xl shadow-lg">
-        <h1 className="text-4xl font-bold mb-2">System Administrator & Intune Engineer</h1>
-        <p className="text-blue-400 italic font-mono text-lg">"Documenting the solutions to the problems I solve."</p>
-      </section>
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+      <Navbar />
 
-      {/* Philosophy Section - Restoration of Original Professional Look */}
-      <section>
-        <h2 className="text-2xl font-bold text-slate-800 border-b-2 border-slate-100 pb-3 mb-8">Philosophy: The NextGenAdmin Approach</h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold text-blue-600">Innovation Over Observation</h3>
-            <p className="text-slate-600 leading-relaxed text-base">
-              I believe that modern System Administration requires a developer's mindset. Instead of manually managing tasks, 
-              I build dashboards like **NextGenAdmin** to centralize operations and provide a "Single Pane of Glass" for infrastructure health.
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        
+        {/* Professional Header - Matches your original layout */}
+        <div className="bg-slate-900 text-white p-10 rounded-2xl shadow-lg mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Cloud Infrastructure & Automation Engineer
+          </h1>
+          <p className="text-blue-200 text-lg font-medium italic">
+            "Documenting the solutions to the problems I solve."
+          </p>
+        </div>
+
+        {/* Humanized Bio Section */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 text-slate-900 border-b-2 border-slate-200 pb-2">
+            About Me
+          </h2>
+          <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm text-slate-700 leading-relaxed space-y-6">
+            <p>
+              Hi, I'm <strong>Sindhuja</strong>. I am a System Administrator and Cloud Engineer who believes that if you have to do a task more than twice, you should automate it.
+            </p>
+            <p>
+              My journey started in traditional IT support, but I quickly realized that the future of administration is <strong>code</strong>. Today, I don't just manage users and devices; I build the tools that manage them.
+            </p>
+            <p>
+              Whether it's troubleshooting a stubborn BIOS error in a virtual machine or writing a Python bot to organize job applications, I enjoy the messy, complicated process of figuring things out. This website is my way of sharing those solutions with the community.
             </p>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold text-blue-600">Documentation as Code</h3>
-            <p className="text-slate-600 leading-relaxed text-base">
-              Every technical hurdle—from **BIOS virtualization blocks** to **OOBE enrollment loops**—is an opportunity to 
-              improve the system. My philosophy is that a solution isn't finished until it is documented and repeatable for the entire team.
-            </p>
+        </section>
+
+        {/* Contact Section - Preserved exactly as requested */}
+        <section className="mb-12">
+          <div className="bg-white p-8 rounded-xl border-l-4 border-blue-600 shadow-sm">
+            <h3 className="text-xl font-bold mb-6 text-slate-900">Connect With Me</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <span className="text-xl">📧</span>
+                  <a href="mailto:sindhujamyadam123@gmail.com" className="text-blue-600 hover:underline font-medium">
+                    sindhujamyadam123@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-xl">🐙</span>
+                  <a href="https://github.com/Sindhuja16-coder" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">
+                    github.com/Sindhuja16-coder
+                  </a>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <span className="text-xl">🔗</span>
+                  <a href="https://www.linkedin.com/in/sindhuja2025" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">
+                    linkedin.com/in/sindhuja2025
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-xl">📍</span>
+                  <span className="text-slate-700 font-medium">India</span>
+                </div>
+              </div>
+
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Connect With Me - Working Links */}
-      <section className="bg-slate-50 p-8 rounded-xl border-l-8 border-blue-600 shadow-sm">
-        <h2 className="text-2xl font-bold text-slate-800 mb-6">Connect With Me</h2>
-        <div className="grid md:grid-cols-2 gap-6 text-slate-700">
-          <p><strong>📧 Email:</strong> <a href="mailto:sindhujamyadam123@gmail.com" className="text-blue-600 hover:underline">sindhujamyadam123@gmail.com</a></p>
-          <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/sindhuja2025" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">linkedin.com/in/sindhuja2025</a></p>
-          <p><strong>💻 GitHub:</strong> <a href="https://github.com/sindhuja16-coder" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">github.com/sindhuja16-coder</a></p>
-          <p><strong>📍 Location:</strong> India</p>
-        </div>
-      </section>
+        {/* Clickable FAQ Section */}
+        <section>
+          <h2 className="text-2xl font-bold mb-6 text-slate-900 border-b-2 border-slate-200 pb-2">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50 transition-colors"
+                >
+                  {faq.question}
+                  <span className={`transform transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`}>
+                    ▼
+                  </span>
+                </button>
+                {/* Simple animation logic */}
+                {openIndex === index && (
+                  <div className="p-5 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
 
-      {/* FAQ Tagline */}
-      <footer className="text-center pt-10 border-t border-slate-100">
-        <p className="text-slate-500 font-medium italic text-lg text-center">
-          FAQ: Automation-first, documentation-always.
-        </p>
-      </footer>
+      </main>
     </div>
   );
 }
