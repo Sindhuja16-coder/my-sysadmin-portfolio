@@ -7,10 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: ./frontend
 
     steps:
     - name: Download Code
@@ -26,3 +22,4 @@ jobs:
 
     - name: Test Site Build
       run: npm run build
+      
