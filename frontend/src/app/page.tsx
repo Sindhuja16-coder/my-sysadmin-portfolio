@@ -1,7 +1,13 @@
+"use client"; // This is required for the interactive Modal
+
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Link from "next/link";
 
 export default function Home() {
+  // State to manage the video modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
@@ -38,7 +44,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                {/* Updated Buttons with Drive Video Link */}
+                {/* Action Buttons */}
                 <div className="mt-4 md:mt-0 flex flex-wrap gap-3">
                   <a 
                     href="https://sentia-sandy.vercel.app" 
@@ -48,15 +54,15 @@ export default function Home() {
                   >
                     🌐 View Live <span>→</span>
                   </a>
-                  <a 
-                    href="https://drive.google.com/file/d/1vRAPPd9Sj0oo27s5TAfO2SjB_j2a-0eG/view?usp=sharing" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="px-5 py-2 bg-white text-purple-700 font-semibold rounded-lg border border-purple-200 hover:bg-purple-50 transition-colors flex items-center gap-2"
+                  
+                  {/* Triggers the Modal */}
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="px-5 py-2 bg-white text-purple-700 font-semibold rounded-lg border border-purple-200 hover:bg-purple-50 transition-colors flex items-center gap-2 cursor-pointer"
                   >
                     🎥 Watch Video <span>→</span>
-                  </a>
-                  {/* Link to the new Detail Page we are about to create */}
+                  </button>
+
                   <Link 
                     href="/sentia"
                     className="px-5 py-2 text-slate-600 font-medium hover:text-purple-700 transition-colors flex items-center gap-2"
@@ -129,8 +135,42 @@ export default function Home() {
               Read the Series <span>→</span>
             </Link>
           </div>
-
         </div>
+
+        {/* --- VIDEO MODAL COMPONENT --- */}
+        {isModalOpen && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-sm transition-all animate-in fade-in duration-200"
+            onClick={() => setIsModalOpen(false)}
+          >
+            {/* Modal Content */}
+            <div 
+              className="relative w-full max-w-4xl bg-black rounded-2xl shadow-2xl overflow-hidden border border-slate-700"
+              onClick={(e) => e.stopPropagation()} // Prevent close when clicking inside
+            >
+              <div className="flex justify-between items-center p-3 bg-slate-900 border-b border-slate-800">
+                <h3 className="text-white font-semibold text-sm tracking-wide">SENTIA DEMO</h3>
+                <button 
+                  onClick={() => setIsModalOpen(false)}
+                  className="text-slate-400 hover:text-white transition-colors p-1"
+                >
+                  ✕ Close
+                </button>
+              </div>
+              
+              {/* Local Video Player */}
+              <video 
+                src="/videos/sentia-demo.mp4" 
+                className="w-full aspect-video"
+                controls
+                autoPlay
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        )}
+
       </main>
     </div>
   );
