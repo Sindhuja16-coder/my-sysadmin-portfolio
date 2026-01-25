@@ -1,102 +1,133 @@
 import Navbar from "../components/Navbar";
-import Link from "next/link";
 
-export default function CareerOps() {
+export default function AutomationHub() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="max-w-6xl mx-auto px-4 py-12">
+      
+      <main className="max-w-5xl mx-auto px-4 py-16">
         
-        {/* HERO SECTION */}
-        <div className="text-center mb-16">
-          <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+        {/* ========================================= */}
+        {/* PROJECT 1: CAREEROPS                      */}
+        {/* ========================================= */}
+        
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-bold text-sm tracking-wide mb-6">
             Python Automation
           </span>
-          <h1 className="text-4xl font-bold text-slate-900 mt-4 mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
             CareerOps: Automated Job Hunter
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             An intelligent bot that scrapes email alerts, resolves redirects, and automatically tracks every job application in a central dashboard.
           </p>
           
-          {/* YOUR ACTUAL GITHUB LINK */}
-          <div className="flex justify-center gap-4">
-            <Link 
-              href="https://github.com/Sindhuja16-coder/CareerOps" 
+          <div className="mt-8 flex justify-center">
+            <a 
+              href="https://github.com/SindhujaMyadam/CareerOps" 
               target="_blank" 
-              className="flex items-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="px-6 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-2"
             >
-              <span className="text-xl">📂</span> View Source Code on GitHub
-            </Link>
+              📂 View Source Code on GitHub
+            </a>
           </div>
         </div>
 
-        {/* WORKFLOW DIAGRAM */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {/* Step 1 */}
-          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">📧</div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">1. Email Aggregation</h3>
-            <p className="text-slate-600 text-sm">
+        {/* CareerOps Features - Reduced margin-bottom from mb-32 to mb-16 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-blue-600">1.</span> Email Aggregation
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
               The bot connects to email servers at scheduled times, scanning for relevant job alerts and filtering out noise.
             </p>
           </div>
-          
-          {/* Step 2 */}
-          <div className="bg-white p-6 rounded-xl border border-blue-200 shadow-sm relative overflow-hidden ring-2 ring-blue-50">
-            <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">🔗</div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">2. Smart Redirect</h3>
-            <p className="text-slate-600 text-sm">
+          <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-blue-600">2.</span> Smart Redirect
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
               Users paste job links into the bot. It automatically resolves redirects (like Bit.ly or LinkedIn wrappers) to find the direct career site URL.
             </p>
           </div>
-
-          {/* Step 3 */}
-          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl">📊</div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">3. Auto-Tracking</h3>
-            <p className="text-slate-600 text-sm">
+          <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-blue-600">3.</span> Auto-Tracking
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
               Once applied, the bot logs the job details (Title, Company, Date) into the main dashboard for easy status tracking.
             </p>
           </div>
         </div>
 
-        {/* TECHNICAL DETAILS */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6">Why I Built This</h2>
-            <div className="space-y-4 text-slate-600 leading-relaxed">
-              <p>
-                <strong>The Problem:</strong> Managing hundreds of job applications manually is chaotic. Emails get lost, and tracking spreadsheets are tedious to update.
-              </p>
-              <p>
-                <strong>The Solution:</strong> I built a centralized system that treats job hunting like a sales funnel. By automating the data entry, I can focus entirely on interview preparation.
-              </p>
-              <p>
-                <strong>Key Challenge Solved:</strong> Handling dynamic URL redirects from email providers using Python's `requests` library to ensure the correct final URL is stored.
-              </p>
-            </div>
-          </div>
 
-          {/* Tech Stack Side Panel */}
-          <div className="space-y-6">
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-4">Tech Stack</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-sm text-slate-700">
-                  <span className="w-2 h-2 bg-yellow-400 rounded-full"></span> Python (Core Logic)
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-700">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span> Selenium / BS4 (Scraping)
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-700">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span> PostgreSQL (Database)
-                </li>
-                <li className="flex items-center gap-3 text-sm text-slate-700">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span> FastAPI (Backend API)
-                </li>
-              </ul>
-            </div>
+        {/* ========================================= */}
+        {/* DIVIDER - Reduced spacing                 */}
+        {/* ========================================= */}
+        <div className="w-full h-px bg-slate-200 mb-16"></div>
+
+
+        {/* ========================================= */}
+        {/* PROJECT 2: SENTIA                         */}
+        {/* ========================================= */}
+
+        <div className="text-center mb-12">
+          {/* Tag is Purple to distinguish AI project */}
+          <span className="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-purple-700 font-bold text-sm tracking-wide mb-6">
+            AI Safety & Vibe Coding
+          </span>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+            SENTIA: Your Digital Intuition
+          </h1>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            A real-time communication integrity tool providing proactive peace of mind. 
+            Built with <strong>GLM 4.7</strong> and <strong>Cerebras</strong> for sub-millisecond threat detection.
+          </p>
+          
+          <div className="mt-8 flex justify-center gap-4 flex-wrap">
+            <a 
+              href="https://sentia-sandy.vercel.app" 
+              target="_blank" 
+              className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2"
+            >
+              🌐 View Live App
+            </a>
+            <a 
+              href="https://drive.google.com/file/d/1vRAPPd9Sj0oo27s5TAfO2SjB_j2a-0eG/view?usp=sharing" 
+              target="_blank" 
+              className="px-6 py-3 bg-white border border-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-2"
+            >
+              🎥 Watch Demo Video
+            </a>
+          </div>
+        </div>
+
+        {/* Sentia Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-purple-600">1.</span> Sub-ms Intuition
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              Powered by the <strong>Cerebras Wafer-Scale Engine</strong>, Sentia achieves inference speeds of 1,000+ tokens per second, making safety checks feel instant.
+            </p>
+          </div>
+          <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-purple-600">2.</span> Agentic Core
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              Orchestrated using <strong>Cline</strong> and GLM 4.7. The system uses "interleaved thinking" to evaluate coercion risks before taking any action.
+            </p>
+          </div>
+          <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-purple-600">3.</span> Zero-Knowledge
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              <strong>Privacy First:</strong> Audio data is processed in real-time memory and immediately discarded. No recordings are ever saved to disk or cloud.
+            </p>
           </div>
         </div>
 
